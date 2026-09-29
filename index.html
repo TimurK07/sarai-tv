@@ -397,7 +397,7 @@ const S = [
     map:{ terr:[], pins:["ulytau","turkestan"], routes:[] } },
 
   // ===== 6. ИТОГИ
-  { r:5, y:1465, yl:"1465", place:"Студия Сарай TV", hl:"Опрос зрителей: чем была Золотая Орда?", poll:true,
+  { r:5, y:1465, yl:"1465", place:"Студия Сарай TV", hl:"Опрос зрителей: как вы оцениваете Золотую Орду?", poll:true,
     lead:"Поднимите руку за свой вариант — ведущий посчитает голоса.",
     src:"Интерактив в прямом эфире",
     map:{ terr:["horde"], pins:[], routes:[] } },
@@ -481,7 +481,7 @@ function extra(ex) {
 const votes = POLL.map(() => 0);
 function pollHTML() {
   const total = votes.reduce((a, b) => a + b, 0);
-  return `<div class="poll">${POLL.map((o, i) => `<div class="opt"><span class="name">${o}</span><span class="ctl"><button type="button" data-v="${i}" data-d="-1" aria-label="Убрать голос">−</button><span class="n">${votes[i]}</span><button type="button" data-v="${i}" data-d="1" aria-label="Добавить голос">+</button></span><div class="meter"><i style="width:${total ? (votes[i] / total) * 100 : 0}%"></i></div></div>`).join("")}<p class="hint">Правильного ответа нет: историки до сих пор спорят. Главное — аргументы из источников.</p></div>`;
+  return `<div class="poll">${POLL.map((o, i) => `<div class="opt"><span class="name">${o}</span><span class="ctl"><button type="button" data-v="${i}" data-d="-1" aria-label="Убрать голос">−</button><span class="n">${votes[i]}</span><button type="button" data-v="${i}" data-d="1" aria-label="Добавить голос">+</button></span><div class="meter"><i style="width:${total ? (votes[i] / total) * 100 : 0}%"></i></div></div>`).join("")}<p class="hint">Факты об Орде известны, но историки по-разному их оценивают. Главное — аргументы из источников.</p></div>`;
 }
 function bodyHTML(s) {
   let h = `<h2>${esc(s.hl)}</h2><p class="lead">${esc(s.lead)}</p>`;
